@@ -13,8 +13,8 @@ console.log("region: process.env.AWS_SES_REGION,", process.env.AWS_SES_REGION);
 export const s3Client = new S3Client({
   region: "ap-south-1",
   credentials: {
-    accessKeyId: "AKIARUUG23KGJUWHDNWV",
-    secretAccessKey: "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",
+    accessKeyId: "",
+    secretAccessKey: "",
   },
 });
 
