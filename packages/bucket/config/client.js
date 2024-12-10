@@ -12,7 +12,7 @@ var client_s3_1 = require("@aws-sdk/client-s3");
 exports.s3Client = new client_s3_1.S3Client({
     region: "ap-south-1",
     credentials: {
-        accessKeyId: "AKIARUUG23KGJUWHDNWV",
-        secretAccessKey: "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",
+        accessKeyId: "",
+        secretAccessKey: "",
     },
 });
