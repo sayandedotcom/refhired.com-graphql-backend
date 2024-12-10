@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: ./apps/web/Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    # volumes:
+    #   - ./apps/web:/app
+    #   - /app/node_modules
+    env_file:
+      - ./apps/web/.env
+    networks:
+      - app_network
+  database:
+    image: postgres:latest
+    container_name: referrerDB
+    ports:
+      - "5432:5432"
+    volumes:
+      - referrerDB:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=referrerDB
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+volumes:
+  referrerDB:
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  app_network:
+    external: true
